@@ -468,11 +468,13 @@ layout: default-aside
 # Challenges
 ## Event Versioning
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Backwards Compatible Please
-- Rewrite History
+- Rewrite History vs Upcaster
 - EventV2
+- GDPR: Encryption & Pseudonymization
+  - Events are immutable, but users want to be forgotten
 
 </v-clicks>
 
@@ -482,6 +484,10 @@ layout: default-aside
 
 <!--
 Protobuf: Built with this in mind
+
+GDPR: If events are immutable, how do you delete user data? Options: encrypt event payloads per-user and destroy the key on deletion (crypto-shredding), or pseudonymize PII fields so events remain valid but untraceable.
+
+Upcaster: transforms old event versions to the current schema on-the-fly when reading from the store — no migration needed. Rewrite History actually changes stored events; Upcaster leaves them untouched and converts in memory. Axon and Marten have built-in support.
 -->
 
 ---
