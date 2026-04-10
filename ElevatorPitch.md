@@ -2,7 +2,7 @@
 
 ## Abstract
 
-An introduction to Event Sourcing and CQRS (Command Query Responsibility Segregation). We explore how storing events instead of application state enables temporal queries, projections, and rewriting history -- and when (and when not) to reach for these patterns.
+A practical and pragmatic theoretical session on Event Sourcing and CQRS (Command Query Responsibility Segregation). Both offer tremendously powerful features out of the box but also bring with them a whole slew of new challenges. A cautionary tale.
 
 ## Target Audience
 
