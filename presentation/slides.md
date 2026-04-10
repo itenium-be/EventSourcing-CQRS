@@ -200,6 +200,12 @@ h1:
 
 ![](./images/projections.png)
 
+<!--
+When projection logic changes, you can rebuild by replaying all events — one of ES's killer features.
+
+Strategies: replay from position 0 (drop & rebuild), catch-up subscriptions (track a checkpoint, read forward), or blue/green projections (build new alongside old, swap when caught up).
+-->
+
 ---
 layout: default-aside
 ---
@@ -377,11 +383,17 @@ h1:
 
 ```csharp
 class PublishEvent {
-    String JointCommittee;
-    Date PublishDate;
+  String JointCommittee;
+  Date PublishDate;
 }
 
-class PublishHandler : Handler<PublishEvent>
+class PublishHandler : Handler<PublishEvent> {
+  void Handle(PublishEvent e) {
+    var stream = store.Load(e.JointCommittee);
+    stream.Apply(new Published(e.JointCommittee, e.PublishDate));
+    store.Save(stream);
+  }
+}
 ```
 
 ::image::
@@ -570,6 +582,13 @@ h1:
   - Query: return data to the user
 
 </v-clicks>
+
+<div v-click class="text-center text-primary mt-20">
+
+CQRS scales CQS to the architectural level
+
+</div>
+
 
 ::image::
 
