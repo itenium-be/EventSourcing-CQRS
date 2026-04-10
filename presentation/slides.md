@@ -611,8 +611,8 @@ https://itenium.be/blog/design/CQRS-Ramble/
 -->
 
 ---
-layout: default
-textSize: sm
+layout: default-aside
+textSize: xl
 h1:
   type: slashes
   color: muted
@@ -626,13 +626,17 @@ h1:
 <v-clicks depth="2">
 
 - The Write Side Queries The Read Side
-- Be Pragmatic!
+  - Be Pragmatic!
 - Don't use Frameworks
   - Functions
   - Pattern Matching
   - Fold
 
 </v-clicks>
+
+::image::
+
+![](./images/common-anti-patterns.png)
 
 ---
 layout: statement
@@ -644,8 +648,12 @@ Herberekening uitbetaalde pensioenen parlementsleden?
 
 Piece of cake with Event-Sourcing! 😃
 
+::image::
+
+![](./images/CQRS-UseCase.png)
+
 ---
-layout: default
+layout: default-aside
 h1:
   type: dot
   color: muted
@@ -654,27 +662,34 @@ h1:
 
 # Barema's
 
-<v-clicks>
+<v-clicks depth="2">
 
 - A certain set of rules apply per CAO publish
 - Publishes are Snapshots
 - Events are divided per JointCommittee
 - Mistakes will occur
-- We need to go back in time,
-- Adjust, insert or delete events
-- History will be rewritten
+  - We need to go back in time,
+  - Adjust, insert or delete events
+  - History will be rewritten
 
 </v-clicks>
+
+::image::
+
+![](./images/barema.png)
 
 <!--
 JointCommittee==Paritair Comite. 200 for us.
 -->
 
 ---
-layout: default-aside
+layout: two-col-image-text
+image: ./images/event-storming-whiteboard.jpg
 ---
 
 # Event Storming
+
+::content::
 
 <v-clicks>
 
@@ -683,10 +698,6 @@ layout: default-aside
 - Maybe a future soft-skill workshop session?
 
 </v-clicks>
-
-::image::
-
-![](./images/event-storming-whiteboard.jpg)
 
 <!--
 Alberto Brandolini in the context of domain-driven design (DDD)
