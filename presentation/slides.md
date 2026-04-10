@@ -455,6 +455,40 @@ textSize: xl
 ![](./images/gateway.png)
 
 ---
+layout: default-aside
+---
+
+# Challenges
+## Idempotency
+
+<v-clicks depth="2">
+
+- Events may be delivered more than once
+  - At-least-once delivery
+  - Retries after failures
+- Event handlers must produce the same result when replayed
+- Strategies
+  - Idempotency keys / deduplication
+  - Conditional writes (check current state before applying)
+  - Natural idempotency (set value vs increment)
+
+</v-clicks>
+
+::image::
+
+![](./images/idempotency.png)
+
+<!--
+More in the Microservices session!
+
+This is critical for Event Replay and Projections to work correctly.
+
+If your handler does `balance += amount` instead of `balance = newBalance`, replaying the event doubles the effect.
+
+At-least-once is the norm in distributed systems. Exactly-once is essentially at-least-once + idempotent handlers.
+-->
+
+---
 layout: break
 ---
 
@@ -685,6 +719,7 @@ JointCommittee==Paritair Comite. 200 for us.
 ---
 layout: two-col-image-text
 image: ./images/event-storming-whiteboard.jpg
+disabled: true
 ---
 
 # Event Storming
