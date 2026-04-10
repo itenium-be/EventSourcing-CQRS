@@ -383,6 +383,8 @@ Kafka is often confused with an event store — it's a distributed commit log. M
 Marten is great for .NET shops that don't want to run a separate database.
 
 DIY: a simple `Events` table with `StreamId`, `Version`, `EventType`, `Data`, `Timestamp` gets you surprisingly far.
+
+Stream-per-aggregate is the standard pattern: one stream per aggregate instance (e.g., `Order-123`). This is what makes optimistic concurrency, snapshots, and rehydration work per-entity.
 -->
 
 ---
