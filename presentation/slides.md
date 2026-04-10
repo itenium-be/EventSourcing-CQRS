@@ -115,12 +115,20 @@ h1:
   - Projections
   - Rewriting History
   - Debugging
+- Testing: Given-When-Then
 
 </v-clicks>
 
 ::image::
 
 ![](./images/features.png)
+
+<!--
+**Given-When-Then**:
+- Given these past events
+- When presented with this command
+- Then this should be the outcome
+-->
 
 ---
 layout: default-aside
