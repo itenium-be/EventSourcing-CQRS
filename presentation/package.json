@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build --base /EventSourcing-CQRS/",
+    "export": "slidev export --format pptx --output ../EventSourcing-CQRS.pptx --with-clicks=false"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.0.0"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.49.1"
+  }
+}

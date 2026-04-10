@@ -1,1 +1,9 @@
 ~$*.pptx
+.~lock.*.pptx#
+.claude/settings.local.json
+
+# Slidev
+presentation/node_modules/
+presentation/dist/
+presentation/.slidev/
+presentation/migration/
