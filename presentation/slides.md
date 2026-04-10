@@ -640,18 +640,29 @@ h1:
 
 # CQRS - What
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Read & Write Models
 - Read & Write Databases
 - Complexity Booster
 - Eventual Consistency
+  - Optimistic UI
+  - Read-your-own-writes
+  - Polling / Subscriptions
 
 </v-clicks>
 
 ::image::
 
 ![](./images/CQRS-What.png)
+
+<!--
+**Eventual Consistency**: user submits a command, then queries the read side and sees stale data. How to deal with it?
+
+**Optimistic UI**: assume the command succeeded, update the UI immediately.  
+**Read-your-own-writes**: after a command, read from the write side (or wait for the projection to catch up) before returning.  
+**Polling/Subscriptions**: client polls or subscribes until the read model reflects the change.
+-->
 
 ---
 layout: default-aside
