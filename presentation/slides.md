@@ -271,11 +271,13 @@ textSize: xl
 
 ## You **want** a global ordering of events
 
-<v-clicks>
+<v-clicks depth="2">
 
 - For the 10% of apps where this is not the case, there is extra complexity
   - Causal Consistency
   - Conflict Detection
+- Optimistic Concurrency Control
+  - Expected version on append
 
 </v-clicks>
 
@@ -289,6 +291,8 @@ You want global ordering: because it makes things much easier.
 Causally related events are executed in a "happens-before relationship".
 
 MongoDB has this.
+
+Optimistic Concurrency: when two commands append to the same stream, the second gets a version conflict and must retry. EventStoreDB and Marten enforce this out of the box.
 -->
 
 ---
