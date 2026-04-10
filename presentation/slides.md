@@ -328,6 +328,44 @@ fontSize: xl
 
 ---
 layout: default-aside
+textSize: sm
+---
+
+# Implementation
+## Event Store Technologies
+
+<v-clicks depth="2">
+
+- EventStoreDB
+  - Purpose-built, Greg Young's project
+  - Projections, subscriptions, built-in stream model
+- Kafka
+  - Distributed log, not an event store
+  - No stream-per-aggregate, no optimistic concurrency
+- Marten (.NET)
+  - PostgreSQL as event store + document DB
+- Axon (Java/Kotlin)
+  - Full framework: ES + CQRS + Sagas
+- DIY: any append-only table works
+
+</v-clicks>
+
+::image::
+
+![](./images/event-stores-technologies.png)
+
+<!--
+EventStoreDB is the canonical choice for a dedicated event store.
+
+Kafka is often confused with an event store — it's a distributed commit log. Missing key ES features: no optimistic concurrency per stream, no built-in snapshots, retention policies can delete events.
+
+Marten is great for .NET shops that don't want to run a separate database.
+
+DIY: a simple `Events` table with `StreamId`, `Version`, `EventType`, `Data`, `Timestamp` gets you surprisingly far.
+-->
+
+---
+layout: default-aside
 h1:
   type: braces
   color: muted
