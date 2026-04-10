@@ -97,7 +97,7 @@ layout: quote-image
 ![](./images/meme-preserve-intent.jpg)
 
 ---
-layout: default
+layout: default-aside
 textSize: xl
 h1:
   type: hash
@@ -118,16 +118,21 @@ h1:
 
 </v-clicks>
 
+::image::
+
+![](./images/features.png)
+
 ---
-layout: default
-textSize: sm
+layout: default-aside
+textSize: xl
 ---
 
 # Feature: Complete Rebuild
 
+## Replaying a lot of events -- that's gonna take time!
+
 <v-clicks depth="2">
 
-- Replaying a lot of events -- that's gonna take time!
 - Rehydration
 - Do Store the Application State
   - In memory
@@ -136,30 +141,44 @@ textSize: sm
 
 </v-clicks>
 
+::image::
+
+![](./images/complete-rebuild.png)
+
 <!--
 Is this a feature? Or a liability?
 -->
 
 ---
-layout: default
+layout: default-aside
 ---
 
 # Feature: Temporal Queries
+
+## With a database: You can only get the current state
+
+<v-clicks depth="2">
+
+- With event-sourcing
+  - What was the state at any time
+  - How did we get to our current state
+
+</v-clicks>
+
+<div v-click class="mt-20 mr-80">
 
 ```ts
 function getAddress(at: Date)
 ```
 
-<!--
-With a database: You can only get the current state
+</div>
 
-With event-sourcing:
-What was the state at any time
-How did we get to our current state
--->
+::image::
+
+![](./images/temportal-queries.png)
 
 ---
-layout: default
+layout: default-aside
 h1:
   type: dot
   color: muted
@@ -177,8 +196,12 @@ h1:
 
 </v-clicks>
 
+::image::
+
+![](./images/projections.png)
+
 ---
-layout: default
+layout: default-aside
 ---
 
 # Feature: Rewriting History
@@ -192,6 +215,10 @@ layout: default
 
 </v-clicks>
 
+::image::
+
+![](./images/rewriting-history.png)
+
 <!--
 **Events should be immutable**
 
@@ -201,7 +228,7 @@ Git: like you have both revert vs reset/amend in git, you also have both options
 -->
 
 ---
-layout: default
+layout: default-aside
 h1:
   type: slashes
   color: primary
@@ -210,34 +237,45 @@ h1:
 
 # When to EventSource
 
-<v-clicks>
+## When your domain requires one or more of those features!
 
-- When your domain requires one or more of those features!
+<v-clicks depth="2">
+
 - NOT Your Typical CRUD Enterprise Application
 - Complex Domain & Many Business Rules
-- Rules that change over time
+  - Rules that change over time
 - Task Based UI
 
 </v-clicks>
+
+::image::
+
+![](./images/when-to-event-source.png)
 
 <!--
 When: You need to answer Temporal Queries. Or you need to rewrite history.
 -->
 
 ---
-layout: default
+layout: default-aside
+textSize: xl
 ---
 
 # When: Linearization
 
+## You **want** a global ordering of events
+
 <v-clicks>
 
-- You want a global ordering of events
 - For the 10% of apps where this is not the case, there is extra complexity
   - Causal Consistency
   - Conflict Detection
 
 </v-clicks>
+
+::image::
+
+![](./images/linearization.png)
 
 <!--
 You want global ordering: because it makes things much easier.
@@ -248,8 +286,8 @@ MongoDB has this.
 -->
 
 ---
-layout: default
-textSize: sm
+layout: default-aside
+textSize: xl
 ---
 
 # When No Linearization
@@ -263,8 +301,13 @@ textSize: sm
 
 </v-clicks>
 
+::image::
+
+![](./images/when-no-linearization.png)
+
 ---
-layout: default
+layout: default-aside
+fontSize: xl
 ---
 
 # Examples
@@ -279,12 +322,16 @@ layout: default
 
 </v-clicks>
 
+::image::
+
+![](./images/examples.png)
+
 ---
-layout: default
+layout: default-aside
 h1:
   type: braces
   color: muted
-  position: 2
+  position: all
 ---
 
 # Implementation
@@ -299,31 +346,39 @@ class PublishEvent {
 class PublishHandler : Handler<PublishEvent>
 ```
 
+::image::
+
+![](./images/transaction-script.png)
+
 <!--
 The alternative is to work with a Domain Model.
 -->
 
 ---
-layout: default
-textSize: sm
+layout: default-aside
+textSize: xl
 ---
 
 # Implementation
 ## Event Handler Selection
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Inside the event itself
 - Reflection
-- Configuration Files
-- Naming Convention
-- A Library
+  - Configuration Files
+  - Naming Convention
+  - ~~A Library~~
 - Process Manager
 
 </v-clicks>
 
+::image::
+
+![](./images/event-handler-selection.png)
+
 ---
-layout: default
+layout: default-aside
 h1:
   type: semicolon
   color: muted
@@ -342,6 +397,10 @@ h1:
 
 </v-clicks>
 
+::image::
+
+![](./images/process-manager.png)
+
 <!--
 **Process Manager:**
 
@@ -353,7 +412,7 @@ Instead you can use a Process Manager to delegate (Event -> Command(s))
 -->
 
 ---
-layout: default
+layout: default-aside
 ---
 
 # Challenges
@@ -367,24 +426,33 @@ layout: default
 
 </v-clicks>
 
+::image::
+
+![](./images/event-versioning.png)
+
 <!--
 Protobuf: Built with this in mind
 -->
 
 ---
-layout: default
+layout: default-aside
+textSize: xl
 ---
 
 # Challenges
 ## External Systems
 
-<v-clicks>
+<v-clicks depth="2">
 
 - A Gateway
-- Mock during Replay
-- Store original reply
+  - Mock during Replay
+  - Store original reply
 
 </v-clicks>
+
+::image::
+
+![](./images/gateway.png)
 
 ---
 layout: break
@@ -411,7 +479,8 @@ layout: section
 Command Query Responsibility Segregation
 
 ---
-layout: default
+layout: default-aside
+textSize: xl
 h1:
   type: brackets
   color: primary
@@ -422,13 +491,17 @@ h1:
 
 ## Command-Query Separation
 
-<v-clicks>
+<v-clicks depth="2">
 
 - Each method is either a
   - Command: perform an action
   - Query: return data to the user
 
 </v-clicks>
+
+::image::
+
+![](./images/CQS.png)
 
 <!--
 1988, Betrand Meyer, Object Oriented Software Construction.
@@ -449,7 +522,7 @@ https://martinfowler.com/bliki/CQRS.html
 -->
 
 ---
-layout: default
+layout: default-aside
 h1:
   type: hash
   color: muted
@@ -467,8 +540,12 @@ h1:
 
 </v-clicks>
 
+::image::
+
+![](./images/CQRS-What.png)
+
 ---
-layout: default
+layout: default-aside
 ---
 
 # CQRS - When
@@ -481,8 +558,12 @@ layout: default
 
 </v-clicks>
 
+::image::
+
+![](./images/CQRS-When.png)
+
 ---
-layout: quote
+layout: statement
 ---
 
 # CQRS - Danger
@@ -493,36 +574,39 @@ Despite these benefits, you should be **very cautious about using CQRS**...
 
 -- Martin Fowler
 
+::image::
+
+![](./images/CQRS-Danger.png)
+
 <!--
 The part in bold is the ONLY part in Fowler's article that is in bold.
 -->
 
 ---
-layout: default-aside
+layout: two-col-image-text
 h1:
   type: braces
   color: primary
   position: all
+image: ./images/meme-hard-to-swallow-pills.jpg
 ---
 
 # Common Anti-Patterns
 
 ## (from Greg Young)
 
+::content::
+
 <v-clicks>
 
-- Not top-level architectures
-- Not top-level architectures
+- Not a top-level architecture
+- **Not** a top-level architecture
 - Pick & Choose those parts that will benefit from it
 
 </v-clicks>
 
-::image::
-
-![](./images/meme-hard-to-swallow-pills.jpg)
-
 <!--
-Not top-level architectures:
+Not a top-level architecture:
 https://itenium.be/blog/design/CQRS-Ramble/
 -->
 
@@ -539,7 +623,7 @@ h1:
 
 ## (from Greg Young)
 
-<v-clicks>
+<v-clicks depth="2">
 
 - The Write Side Queries The Read Side
 - Be Pragmatic!
