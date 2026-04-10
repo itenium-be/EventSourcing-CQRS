@@ -175,7 +175,7 @@ function getAddress(at: Date)
 
 ::image::
 
-![](./images/temportal-queries.png)
+![](./images/temporal-queries.png)
 
 ---
 layout: default-aside
@@ -504,7 +504,7 @@ h1:
 ![](./images/CQS.png)
 
 <!--
-1988, Betrand Meyer, Object Oriented Software Construction.
+1988, Bertrand Meyer, Object Oriented Software Construction.
 -->
 
 ---
@@ -599,14 +599,14 @@ image: ./images/meme-hard-to-swallow-pills.jpg
 
 <v-clicks>
 
-- Not a top-level architecture
-- **Not** a top-level architecture
+- Not top-level architectures
+- **Not** top-level architectures
 - Pick & Choose those parts that will benefit from it
 
 </v-clicks>
 
 <!--
-Not a top-level architecture:
+Not top-level architectures:
 https://itenium.be/blog/design/CQRS-Ramble/
 -->
 
