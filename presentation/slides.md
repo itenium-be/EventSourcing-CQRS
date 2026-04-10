@@ -64,6 +64,7 @@ h1:
 - Storing Events vs Application State
 - The Event Store: a very complete Audit Log
 - Events should be Domain Events
+- Event Granularity: coarse vs fine-grained
 - Events should be reversible
 - You'll have to teach each dev the "right way"
 
@@ -80,6 +81,8 @@ https://github.com/EventStore/EventStore
 
 Domain Events:
 - Insert, Update, Edit, Delete xxx Events are not Domain Events
+
+Event Granularity: `AddressChanged` (coarse, easier) vs `StreetChanged` + `CityChanged` (fine, preserves more intent). Coarse events lose information; fine events add complexity. Let the domain guide you.
 
 Reversible Events:
 - Contain the diff instead of the new value
