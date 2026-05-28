@@ -1,6 +1,6 @@
 ---
 theme: ./theme
-title: EventSourcing-CQRS
+title: EventSourcing & CQRS
 subTitle: So hot right now
 transition: fade
 session-time: 90min
