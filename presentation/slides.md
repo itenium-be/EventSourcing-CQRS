@@ -8,6 +8,7 @@ track: Architecture
 type: Theoretical
 first: 2023-05-11
 lastUpdate: 2023-05-11
+aspectRatio: 16/10
 ---
 
 # Event Sourcing
